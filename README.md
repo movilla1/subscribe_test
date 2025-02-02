@@ -36,3 +36,24 @@ Sales Taxes: 7.90
 ```
 
 do not match the logic of sale tax and import tax, according to the item (chocolate) is food, so no sale tax applies, but as is imported, 5% applies, each item is 11.25, so import fee is 0.5625, all 3 items add up to 3 * (11.25 + 0.5625) = 35.4375, rounded up to 35.44 no idea how it got to 35.55, considering this, the sales taxes won't add up to 7.9 but 6.65.
+
+
+## Project running
+
+To run this project, you must use a command line, see the example below for command line parameters
+
+`ruby main.rb spec/fixtures/input3.txt`
+
+OR
+
+`ruby main.rb spec/fixtures/input3.txt debug` for debug output
+
+OR
+
+`ruby main.rb spec/fixtures/input1.txt`
+
+OR
+
+`ruby main.rb spec/fixtures/input2.txt`
+
+the debug option can be used on all, as a second parameter AFTER the file name
