@@ -3,10 +3,11 @@
 # This class is responsible for formatting the output
 # It receives an array of hashes and prints the formatted output
 # It also calculates the total sales tax and total price
-class OutputFormatter
+class OutputFormatter < BaseService
   def initialize(input_hash, totals_hash)
     @input_hash = input_hash
     @totals_hash = totals_hash
+    super(debug: false)
   end
 
   def format

@@ -4,7 +4,8 @@
 class CalculateItemRows < BaseService
   attr_reader :parsed_items, :debug
 
-  def initialize(parsed_items:, debug: false, sales_tax_calculator: SalesTaxCalculator, subtotal_calculator: ItemSubtotalCalculator)
+  def initialize(parsed_items:, debug: false, sales_tax_calculator: SalesTaxCalculator,
+                 subtotal_calculator: ItemSubtotalCalculator)
     @parsed_items = parsed_items
     @debug = debug
     @sales_tax_calculator = sales_tax_calculator.new(debug: @debug)
