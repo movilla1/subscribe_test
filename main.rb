@@ -17,10 +17,8 @@ end
 
 input_parser = InputParser.new(ARGV[0])
 pp 'Input:', input_parser.parse if debug
-sales_tax_hash = SalesTaxCalculator.new(input_parser.parse).calculate
-pp 'Sales Tax:', sales_tax_hash if debug
-complete_items_hash = ItemSubtotalCalculator.new(sales_tax_hash).calculate
-pp 'Complete Item:', complete_items_hash if debug
+complete_items_hash = CalculateItemRows.new(parsed_items: input_parser.parse, debug:).calculate
+pp 'Complete Items:', complete_items_hash if debug
 totals_hash = TotalCalculator.new(complete_items_hash).calculate
 pp 'Totals:', totals_hash if debug
 OutputFormatter.new(complete_items_hash, totals_hash).format

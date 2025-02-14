@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative '../../services/base_service'
 require_relative '../../services/output_formatter'
 require_relative '../spec_helper'
 

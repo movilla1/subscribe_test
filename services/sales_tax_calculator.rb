@@ -3,17 +3,13 @@
 # Calculates the sales tax and import fee for each item in the input
 # input: Array of Hashes containing the item details
 # output: Array of Hashes containing the item details with sales tax and import fee
-class SalesTaxCalculator
-  def initialize(input)
-    @input = input.dup
-  end
-
-  def calculate
-    @input.map do |item|
-      item[:sales_tax] = calculate_sales_tax(item)
-      item[:import_fee] = calculate_import_fee(item)
-      item
-    end
+class SalesTaxCalculator < BaseService
+  def calculate(item)
+    my_item = item.dup
+    my_item[:sales_tax] = calculate_sales_tax(my_item)
+    my_item[:import_fee] = calculate_import_fee(my_item)
+    debug_output('Sales tax for item:', my_item)
+    my_item
   end
 
   private

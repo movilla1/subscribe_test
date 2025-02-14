@@ -1,17 +1,14 @@
 # frozen_string_literal: true
 
 # This class is responsible for calculating the subtotal for each item
-# It receives an array of hashes and calculates the subtotal for each item
-# It returns an array of hashes with the subtotal for each item
-class ItemSubtotalCalculator
-  def initialize(input_hash)
-    @input_hash = input_hash.dup
-  end
-
-  def calculate
-    @input_hash.each do |item|
-      item[:subtotal] = (item[:price] + item[:sales_tax] + item[:import_fee]) * item[:quantity]
-      item[:subtotal] = item[:subtotal].round(2)
-    end
+# It receives an item calculates the subtotal for it
+# It returns a new item with completed details
+class ItemSubtotalCalculator < BaseService
+  def calculate(item)
+    my_item = item.dup
+    my_item[:subtotal] = (item[:price] + item[:sales_tax] + item[:import_fee]) * item[:quantity]
+    my_item[:subtotal] = my_item[:subtotal].round(2)
+    debug_output('Item w/subtotal:', my_item)
+    my_item
   end
 end
